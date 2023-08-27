@@ -12,6 +12,7 @@ export default () => {
   const URL = "https://api.petfinder.com/v2/animals?type=dog";
   const [currentResult, setCurrentResult] = useState([]);
   const abortControllerRef = useRef(null);
+  const [lastPage, setLastPage] = useState(false);
   useEffect(() => {
     if (accessToken === null) return;
     const abortController = new AbortController();
@@ -46,11 +47,11 @@ export default () => {
   const indexOfFirstResult = indexOfLastResult - petsPerPage;
   useEffect(() => {
     if (results && !isLoading) {
-      const currentResult = results.slice(
-        indexOfFirstResult,
-        indexOfLastResult
-      );
-      setCurrentResult(currentResult);
+      const totalResult = results.slice(indexOfFirstResult, indexOfLastResult);
+      setCurrentResult(totalResult);
+      if (totalResult.length == 0) {
+        setLastPage(true);
+      }
     }
 
     return () => {
@@ -86,10 +87,13 @@ export default () => {
             </div>
           );
         })}
-      {!isLoading && <button onClick={handleNextPage}>Next Page</button>}
-      {!isLoading && currentPage !== 1 && (
+      {!isLoading && !lastPage && (
+        <button onClick={handleNextPage}>Next Page</button>
+      )}
+      {!isLoading && !lastPage && currentPage !== 1 && (
         <button onClick={handlePreviousPage}>Previous Page</button>
       )}
+      {lastPage && <p>No More Results</p>}
     </>
   );
 };
