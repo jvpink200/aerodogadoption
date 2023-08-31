@@ -1,18 +1,25 @@
 import { useEffect, useState, useContext, useRef } from "react";
 import { AuthContext } from "./_app";
 
-export default () => {
-  const [results, setResults] = useState(null);
+export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const accessToken = useContext(AuthContext);
   const [error, setError] = useState();
+
+  const [results, setResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [petsPerPage] = useState(5);
-  //IF get blocked by CORS exceeded api count free tier for the day
-  const URL = "https://api.petfinder.com/v2/animals?type=dog";
-  const [currentResult, setCurrentResult] = useState([]);
+
+  const numOfTotalPages = Math.ceil(results.length / petsPerPage);
+  const pages = [...Array(numOfTotalPages + 1).keys()].slice(1);
+
+  const indexOfLastResult = currentPage * petsPerPage;
+  const indexOfFirstResult = indexOfLastResult - petsPerPage;
+
+  const visiblePets = results.slice(indexOfFirstResult, indexOfLastResult);
   const abortControllerRef = useRef(null);
-  const [lastPage, setLastPage] = useState(false);
+  //IF get blocked by CORS exceeded api count free tier for the day
+  const URL = "https://api.petfinder.com/v2/animals?type=dog&limit=50";
   useEffect(() => {
     if (accessToken === null) return;
     const abortController = new AbortController();
@@ -20,7 +27,7 @@ export default () => {
       abortControllerRef.current?.abort();
       setIsLoading(true);
       try {
-        const petResults = await fetch(`${URL}&page=${currentPage}`, {
+        const petResults = await fetch(`${URL}`, {
           signal: abortControllerRef.current?.signal,
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -40,31 +47,13 @@ export default () => {
     };
     fetchPets();
     return () => abortController.abort();
-  }, [accessToken, currentPage]);
+  }, [accessToken]);
 
-  //Get Current Results
-  const indexOfLastResult = currentPage * petsPerPage;
-  const indexOfFirstResult = indexOfLastResult - petsPerPage;
-  useEffect(() => {
-    if (results && !isLoading) {
-      const totalResult = results.slice(indexOfFirstResult, indexOfLastResult);
-      setCurrentResult(totalResult);
-      if (totalResult.length == 0) {
-        setLastPage(true);
-      }
-    }
-
-    return () => {
-      setResults(null);
-    };
-  }, [results]);
-
+  function handlePrevPage() {
+    setCurrentPage((prevPage) => prevPage - 1);
+  }
   function handleNextPage() {
     setCurrentPage((prevPage) => prevPage + 1);
-  }
-
-  function handlePreviousPage() {
-    setCurrentPage((prevPage) => prevPage - 1);
   }
 
   return (
@@ -77,7 +66,7 @@ export default () => {
         </div>
       )}
       {!isLoading &&
-        currentResult.map((result, index) => {
+        visiblePets.map((result, index) => {
           let { contact, name, age } = result;
           return (
             <div key={index}>
@@ -87,13 +76,15 @@ export default () => {
             </div>
           );
         })}
-      {!isLoading && !lastPage && (
-        <button onClick={handleNextPage}>Next Page</button>
+      {currentPage !== 1 && <button onClick={handlePrevPage}> Prev </button>}
+      {pages.map((page) => (
+        <span key={page} onClick={() => setCurrentPage(page)}>
+          {` ${page} `}
+        </span>
+      ))}
+      {currentPage !== numOfTotalPages && (
+        <button onClick={handleNextPage}> Next </button>
       )}
-      {!isLoading && !lastPage && currentPage !== 1 && (
-        <button onClick={handlePreviousPage}>Previous Page</button>
-      )}
-      {lastPage && <p>No More Results</p>}
     </>
   );
-};
+}
