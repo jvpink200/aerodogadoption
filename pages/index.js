@@ -82,7 +82,7 @@ export default function Home() {
           {` ${page} `}
         </span>
       ))}
-      {currentPage !== numOfTotalPages && (
+      {results.length > 0 && currentPage !== numOfTotalPages && (
         <button onClick={handleNextPage}> Next </button>
       )}
     </>
