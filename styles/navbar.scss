@@ -1,0 +1,30 @@
+.nav {
+  padding: 32px;
+  .links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 32px;
+    font-weight: 700;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .logo {
+    height: 40px;
+    width: 40px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.active {
+  color: green;
+  &:hover {
+    color: red;
+  }
+}

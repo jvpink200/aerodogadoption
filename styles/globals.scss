@@ -1,0 +1,33 @@
+body,
+p {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-areas:
+    "nav nav nav nav"
+    "main main main main"
+    "footer footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.nav {
+  grid-area: nav;
+  background-color: blue;
+}
+
+.main {
+  grid-area: main;
+  background-color: green;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: purple;
+}

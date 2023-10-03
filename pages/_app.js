@@ -1,4 +1,8 @@
 import { useEffect, createContext, useState } from "react";
+import "../styles/globals.scss";
+import "../styles/navbar.scss";
+import "../styles/main.scss";
+import "../styles/footer.scss";
 
 export const AuthContext = createContext();
 

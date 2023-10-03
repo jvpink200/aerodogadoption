@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext, useRef } from "react";
-import { AuthContext } from "./_app";
+import { AuthContext } from "../_app";
 
-export default function Results() {
+export default function Data() {
   const [isLoading, setIsLoading] = useState(false);
   const accessToken = useContext(AuthContext);
   const [error, setError] = useState();
@@ -57,7 +57,7 @@ export default function Results() {
   }
 
   return (
-    <>
+    <div className="main">
       {isLoading && <div>Loading Pet Matches...</div>}
       {error && (
         <div>
@@ -85,6 +85,6 @@ export default function Results() {
       {results.length > 0 && currentPage !== numOfTotalPages && (
         <button onClick={handleNextPage}> Next </button>
       )}
-    </>
+    </div>
   );
 }
