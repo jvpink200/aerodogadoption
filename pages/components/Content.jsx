@@ -1,3 +1,8 @@
+import HeroBanner from "../components/HeroBanner";
 export default function Main() {
-  return <main className="main">Home Main</main>;
+  return (
+    <main className="main">
+      <HeroBanner />
+    </main>
+  );
 }

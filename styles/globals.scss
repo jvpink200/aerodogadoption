@@ -19,7 +19,7 @@ p {
 
 .nav {
   grid-area: nav;
-  background-color: blue;
+  background-color: white;
 }
 
 .main {
@@ -30,4 +30,25 @@ p {
 .footer {
   grid-area: footer;
   background-color: purple;
+}
+
+.btn {
+  color: black;
+  border-radius: 24px;
+  outline: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  padding: 24px 32px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
 }
