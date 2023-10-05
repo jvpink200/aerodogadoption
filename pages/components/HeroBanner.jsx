@@ -11,8 +11,6 @@ export default function HeroBanner() {
           alt="dog eating cereal"
           priority="true"
           layout="fill"
-          objectFit="cover"
-          objectPosition="center"
         />
       </div>
       <div className="bgText">

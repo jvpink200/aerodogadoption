@@ -9,6 +9,11 @@
         color: white;
       }
     }
+    .heroImg {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
 
     @media screen and (max-width: 500px) {
       width: 100%;

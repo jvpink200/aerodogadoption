@@ -6,7 +6,7 @@ export default function Services() {
     <div className="services">
       {services.map((service, index) => {
         return (
-          <div className="card" key={index}>
+          <div className="serviceCard" key={index}>
             <Image
               width={50}
               height={50}
