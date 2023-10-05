@@ -8,7 +8,6 @@ export default function Main() {
       <HeroBanner />
       <Services />
       <AdoptionProcess />
-      <About />
     </main>
   );
 }

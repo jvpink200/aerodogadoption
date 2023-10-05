@@ -123,5 +123,8 @@
         font-size: 2rem;
       }
     }
+    @media screen and (min-width: 2000px) {
+      height: 70rem;
+    }
   }
 }

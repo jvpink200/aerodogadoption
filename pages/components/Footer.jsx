@@ -1,3 +1,9 @@
 export default function Footer() {
-  return <footer className="footer">Footer</footer>;
+  const date = new Date();
+  const year = date.getFullYear();
+  return (
+    <footer className="footer">
+      <p>&copy; {year}</p>
+    </footer>
+  );
 }
