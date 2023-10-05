@@ -92,7 +92,6 @@ export default function Data() {
                   return (
                     <div key={index} className="petCard">
                       {pic.length > 0 && pic}
-
                       {!pic.length && (
                         <div>
                           <Image
@@ -102,7 +101,6 @@ export default function Data() {
                           />
                         </div>
                       )}
-
                       <div className="dogInfo">
                         <p>Name: {result.name}</p>
                         <p>Age: {result.age}</p>
