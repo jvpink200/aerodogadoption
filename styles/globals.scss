@@ -25,12 +25,11 @@ p {
 
 .main {
   grid-area: main;
-  background-color: green;
 }
 
 footer {
   grid-area: footer;
-  background-color: purple;
+  background-color: #121212;
   display: flex;
   align-items: center;
   justify-content: center;

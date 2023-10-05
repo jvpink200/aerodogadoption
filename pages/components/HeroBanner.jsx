@@ -16,7 +16,7 @@ export default function HeroBanner() {
       </div>
       <div className="bgText">
         <h1>Ready To Adopt?!</h1>
-        <h2>Get Ready for PlayTime, Treats,Fun, & Lots of Cuddles!</h2>
+        <h2>Get Ready for PlayTime, Treats, Fun, & Lots of Cuddles!</h2>
         <button className="view-dogs btn">Show Me the Doggies!</button>
       </div>
     </section>

@@ -3,6 +3,8 @@ import "../styles/globals.scss";
 import "../styles/navbar.scss";
 import "../styles/content.scss";
 import "../styles/herobanner.scss";
+import "../styles/services.scss";
+import "../styles/process.scss";
 
 export const AuthContext = createContext();
 

@@ -1,0 +1,30 @@
+.adoption {
+  margin-top: 16px;
+  text-align: center;
+  padding: 32px;
+  text-transform: capitalize;
+  .title {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  .process {
+    padding: 48px;
+    margin-top: 16px;
+    border-radius: 16px;
+    .img {
+      margin-top: -24px;
+    }
+    .subTitle {
+      font-size: 24px;
+    }
+    .text {
+      margin-top: 16px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .steps {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
