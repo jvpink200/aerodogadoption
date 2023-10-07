@@ -1,4 +1,4 @@
-import { processes } from "../constants";
+import processes from "../constants";
 import ProcessCard from "./ProcessCard";
 
 export default function AdoptionProcess() {

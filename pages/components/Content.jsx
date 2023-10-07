@@ -1,6 +1,5 @@
 import HeroBanner from "../components/HeroBanner";
 import Services from "../components/Services";
-import About from "../components/About";
 import AdoptionProcess from "./AdoptionProcess";
 export default function Main() {
   return (
