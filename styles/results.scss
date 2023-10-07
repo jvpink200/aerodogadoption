@@ -46,6 +46,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 32px;
+  cursor: pointer;
   gap: 8px;
   .activePage {
     background-color: #fbae04;
@@ -60,6 +61,7 @@
     padding: 8px 24px;
     color: white;
     border: none;
+    cursor: pointer;
   }
   .nextBtn,
   .prevBtn {

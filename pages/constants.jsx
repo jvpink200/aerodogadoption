@@ -22,18 +22,21 @@ const processes = [
     img: "dogQuiz.png",
     subTitle: "Take Our Quiz",
     text: "find your perfect buddy for your lifestyle",
+    cardNum: "one",
   },
   {
     step: 2,
     img: "ownerDogBed.png",
     subTitle: "prepare for your pet",
     text: "Buy lots of dog food, dog house, dog bed, treats, & toys!",
+    cardNum: "two",
   },
   {
     step: 3,
     img: "dogHome.png",
     subTitle: "bring your pet home",
     text: "get ready for daily walks, fun & training",
+    cardNum: "three",
   },
 ];
 
