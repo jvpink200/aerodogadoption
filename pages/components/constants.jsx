@@ -40,4 +40,4 @@ const processes = [
   },
 ];
 
-export default { services, processes };
+export { services, processes };
