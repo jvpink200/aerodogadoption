@@ -3,6 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/results": "pages/results.js",
-  "/api/oauth-token": "pages/api/oauth-token.js"
+  "/api/oauth-token": "pages/api/oauth-token.js",
+  "/results": "pages/results.js"
 }
