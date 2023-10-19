@@ -6,6 +6,7 @@ import "../styles/herobanner.scss";
 import "../styles/services.scss";
 import "../styles/process.scss";
 import "../styles/results.scss";
+import "../styles/data.scss";
 
 export const AuthContext = createContext();
 

@@ -3,7 +3,7 @@ import { AuthContext } from "../_app";
 import Image from "next/image";
 import placeholderImage from "../images/dogPlaceHolder.png";
 export default function Data() {
-  const [slide, setSlide] = useState(0);
+  const slide = 0;
 
   const [isLoading, setIsLoading] = useState(false);
   const accessToken = useContext(AuthContext);
@@ -63,13 +63,16 @@ export default function Data() {
   return (
     <section className="main">
       <div className="dogsResults">
-        {isLoading && <div>Loading Pet Matches...</div>}
-        {error && (
-          <div>
-            Sorry, <b>exceeded API requests for the day</b> or something went
-            wrong...contact admin
-          </div>
-        )}
+        <p className="adorable">Adorable Pups Available for Adoption</p>
+        <div className="loading">
+          {isLoading && <div>Loading Pet Matches...</div>}
+          {error && (
+            <div>
+              Sorry, <b>exceeded API requests for the day</b> or something went
+              wrong...contact admin
+            </div>
+          )}
+        </div>
         <div className="matches">
           {!isLoading && (
             <>
