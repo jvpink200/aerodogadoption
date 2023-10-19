@@ -1,6 +1,5 @@
-import { services } from "../constants";
-
 import Image from "next/image";
+import { services } from "@/constants";
 export default function Services() {
   return (
     <div className="services">
